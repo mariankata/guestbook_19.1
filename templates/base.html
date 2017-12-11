@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <h1>This is our Guest Book</h1>
+
+    <form method="post">
+        <input name="name" type="text" placeholder="your name"/>
+        <input name="email" type="text" placeholder="your email">
+        <input name="phone_number" placeholder="your phone number">
+        <input name="message" type="text" placeholder="your message">
+        <button type="submit">Send your message</button>
+    </form>
+
+{{guest_name}}
+{{guest_email}}
+{{guest_phone_number}}
+{{guest_message}}
+<br>
+    <ol>
+        {% for item in guest_messages_list %}
+        <li>
+            {{item.guest_name, item.guest_email, item.guest_phone_number, item.guest_message}}
+        </li>
+        {% endfor %}
+
+    </ol>
+</body>
+</html>
